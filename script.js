@@ -21,3 +21,14 @@ if(heartsContainer){
         setTimeout(()=> heart.remove(), 5000);
     }, 400);
 }
+// Existing balloon and heart code remains
+
+// Floating flashback images
+const floatingPics = document.querySelectorAll('.floating-pic');
+floatingPics.forEach(pic => {
+    const duration = 8 + Math.random() * 5; // 8-13s float duration
+    const delay = Math.random() * 5; // random start delay
+    pic.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+    pic.style.animationDuration = duration + 's';
+    pic.style.animationDelay = delay + 's';
+});
