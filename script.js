@@ -24,39 +24,35 @@ if(heartsContainer){
 // Existing balloon and heart code remains
 
 // Floating flashback images
-const floatingPics = document.querySelectorAll('.floating-pic');
-floatingPics.forEach(pic => {
-    const duration = 8 + Math.random() * 5; // 8-13s float duration
-    const delay = Math.random() * 5; // random start delay
-    pic.style.left = Math.random() * (window.innerWidth - 200) + 'px';
-    pic.style.animationDuration = duration + 's';
-    pic.style.animationDelay = delay + 's';
-});
-const pics = document.querySelectorAll(".pic");
+window.onload = function () {
 
-pics.forEach(pic => {
-  let x = Math.random() * (window.innerWidth - 220);
-  let y = window.innerHeight + Math.random() * 300;
-  let speed = 0.4 + Math.random() * 0.4;
+  const pics = document.querySelectorAll(".pic");
 
-  pic.style.left = x + "px";
-  pic.style.top = y + "px";
+  pics.forEach(pic => {
+    let x = Math.random() * (window.innerWidth - 220);
+    let y = window.innerHeight + Math.random() * 300;
+    let speed = 0.6 + Math.random() * 0.5;
 
-  function floatUp() {
-    y -= speed;
-    x += Math.sin(y * 0.02) * 0.5;
+    pic.style.left = x + "px";
+    pic.style.top = y + "px";
 
-    if (y < -260) {
-      y = window.innerHeight + 200;
-      x = Math.random() * (window.innerWidth - 220);
+    function floatUp() {
+      y -= speed;
+      x += Math.sin(y * 0.03) * 0.6;
+
+      if (y < -260) {
+        y = window.innerHeight + 200;
+        x = Math.random() * (window.innerWidth - 220);
+      }
+
+      pic.style.top = y + "px";
+      pic.style.left = x + "px";
+
+      requestAnimationFrame(floatUp);
     }
 
-    pic.style.top = y + "px";
-    pic.style.left = x + "px";
+    floatUp();
+  });
 
-    requestAnimationFrame(floatUp);
-  }
-
-  floatUp();
-});
+};
 
