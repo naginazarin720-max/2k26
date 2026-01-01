@@ -130,3 +130,50 @@ body {
   font-size: 14px;
   color: #ff4d88;
 }
+.float-area {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #ffd6e8;
+  overflow: hidden;
+}
+
+/* common floating style */
+.float {
+  position: absolute;
+  text-align: center;
+  animation: floatUp 18s linear infinite;
+}
+
+.float img {
+  width: 190px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.float p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #ff4d88;
+}
+
+/* different start positions + delays */
+.pic1 { left: 5%;  animation-delay: 0s; }
+.pic2 { left: 30%; animation-delay: 4s; }
+.pic3 { left: 55%; animation-delay: 8s; }
+.pic4 { left: 75%; animation-delay: 12s; }
+
+@keyframes floatUp {
+  0% {
+    top: 110%;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(25px);
+  }
+  100% {
+    top: -40%;
+    transform: translateX(-25px);
+  }
+}
+
