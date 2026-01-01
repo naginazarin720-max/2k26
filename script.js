@@ -32,3 +32,31 @@ floatingPics.forEach(pic => {
     pic.style.animationDuration = duration + 's';
     pic.style.animationDelay = delay + 's';
 });
+const pics = document.querySelectorAll(".pic");
+
+pics.forEach(pic => {
+  let x = Math.random() * (window.innerWidth - 220);
+  let y = window.innerHeight + Math.random() * 300;
+  let speed = 0.4 + Math.random() * 0.4;
+
+  pic.style.left = x + "px";
+  pic.style.top = y + "px";
+
+  function floatUp() {
+    y -= speed;
+    x += Math.sin(y * 0.02) * 0.5;
+
+    if (y < -260) {
+      y = window.innerHeight + 200;
+      x = Math.random() * (window.innerWidth - 220);
+    }
+
+    pic.style.top = y + "px";
+    pic.style.left = x + "px";
+
+    requestAnimationFrame(floatUp);
+  }
+
+  floatUp();
+});
+
